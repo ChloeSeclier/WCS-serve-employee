@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 
 const app=express();
 
@@ -18,6 +19,7 @@ const sayHello=(req,res) => {
     res.json({results :[sampleEmployee]});
 };
 
+app.use(cors({ origin: ["http://localhost:5173"] }));
 app.get("/api/employees", sayHello);
 
 const port=3310;
